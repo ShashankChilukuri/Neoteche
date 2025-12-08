@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import NeotecheLanding from "./NeotecheLanding";
+import NeotecheLanding from "./NeotecheLanding.jsx";
 
 function App() {
   return (
