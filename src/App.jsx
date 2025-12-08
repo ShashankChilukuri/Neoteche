@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import "./App.css";
 import NeotecheLanding from "./NeotecheLanding.jsx";
 

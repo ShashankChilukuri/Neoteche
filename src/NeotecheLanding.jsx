@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/NavBar.jsx";
 import Hero from "./components/Hero.jsx";
 import Why from "./components/About.jsx";
 import Services from "./components/Services.jsx";
