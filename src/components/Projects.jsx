@@ -24,41 +24,59 @@ export default function Projects({ dark }) {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 max-w-7xl mx-auto text-center">
+    <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
 
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extrabold mb-12"
-      >
-        Our Projects
-      </motion.h2>
+      {/* HEADER */}
+      <div className="text-center mb-16">
+        <motion.span
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          className="text-indigo-500 font-bold tracking-widest uppercase text-sm"
+        >
+          Work
+        </motion.span>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className={`text-4xl md:text-5xl font-['Outfit'] font-bold mt-2 ${dark ? "text-white" : "text-gray-900"}`}
+        >
+          Our Projects
+        </motion.h2>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {/* PROJECTS GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((proj, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className={`p-8 rounded-2xl backdrop-blur-xl border shadow-xl hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer ${
-              dark ? "bg-gray-800/40 border-gray-700" : "bg-white/30 border-white/40"
-            }`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            whileHover={{ y: -5 }}
+            className={`flex flex-col p-8 rounded-3xl border shadow-lg transition-all duration-300 ${dark
+                ? "bg-gray-800/50 border-gray-700 hover:border-gray-600"
+                : "bg-white border-gray-100 hover:border-indigo-100 hover:shadow-xl"
+              }`}
           >
-            <div className="text-5xl mb-4">{proj.icon}</div>
+            <div className="text-6xl mb-6 bg-gradient-to-br from-indigo-100 to-white w-24 h-24 rounded-2xl flex items-center justify-center shadow-inner">
+              {proj.icon}
+            </div>
 
-            <h3 className="text-2xl font-semibold mb-3">{proj.title}</h3>
+            <h3 className={`text-2xl font-bold mb-3 ${dark ? "text-white" : "text-gray-900"}`}>
+              {proj.title}
+            </h3>
 
-            <p className="opacity-80 text-lg leading-relaxed mb-4">
+            <p className={`text-lg leading-relaxed mb-8 flex-grow ${dark ? "text-gray-400" : "text-gray-500"}`}>
               {proj.desc}
             </p>
 
-            <div className="flex flex-wrap justify-center gap-2 mt-4">
+            <div className="flex flex-wrap gap-2 pt-4 border-t border-dashed border-gray-700/20">
               {proj.tech.map((t, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm font-medium bg-indigo-600/20 text-indigo-600 rounded-full"
+                  className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-md ${dark
+                      ? "bg-gray-700 text-gray-300"
+                      : "bg-indigo-50 text-indigo-600"
+                    }`}
                 >
                   {t}
                 </span>

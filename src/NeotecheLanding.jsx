@@ -28,17 +28,16 @@ export default function NeotecheLanding() {
 
   return (
     <div
-      className={`${
-        dark ? "bg-gray-900 text-gray-100" : "bg-white text-gray-900"
-      } min-h-screen transition`}
+      className={`${dark ? "bg-gray-900 text-gray-100" : "bg-white text-gray-900"
+        } min-h-screen transition`}
     >
       <Navbar dark={dark} setDark={setDark} active={active} />
-      <Hero />
+      <Hero dark={dark} />
       <Why dark={dark} />
       <Services dark={dark} />
       <Projects dark={dark} />
-      <Contact />
-      <Footer />
+      <Contact dark={dark} />
+      <Footer dark={dark} />
     </div>
   );
 }
