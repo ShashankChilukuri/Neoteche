@@ -32,8 +32,8 @@ export default function Footer() {
               to solve real-world challenges for modern businesses.
             </p>
             <div className="flex gap-4 pt-4">
-              <SocialIcon icon={Linkedin} href="https://linkedin.com" />
-              <SocialIcon icon={GithubIcon} href="https://github.com" />
+              <SocialIcon icon={Linkedin} href="https://linkedin.com/company/neoteche/" />
+          
               <SocialIcon icon={Mail} href="mailto:contact@neoteche.tech" />
             </div>
           </div>
