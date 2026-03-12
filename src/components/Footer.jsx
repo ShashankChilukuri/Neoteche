@@ -1,52 +1,84 @@
 import React from "react";
-import Logo from "../assets/LogoOnly.png";
-import Logo1 from "../assets/NameLogo.png";
+import { Rocket, Linkedin, Github as GithubIcon, Mail, Heart } from "lucide-react";
+import logo from "../assets/Fresh-Logo.png"
 
-export default function Footer({ dark }) {
+export default function Footer() {
   return (
-    <footer
-      className={`py-12 px-6 border-t ${dark ? "bg-gray-900 border-gray-800 text-gray-300" : "bg-white border-gray-200 text-gray-600"
-        }`}
-    >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="py-20 px-6 bg-[#01040f] border-t border-white/5 text-gray-400">
+      <div className="w-full px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          {/* BRAND */}
+          <div className="col-span-1 md:col-span-2 space-y-6">
 
-        {/* BRAND */}
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <div className="flex items-center gap-3">
-            <img src={Logo} alt="Logo" className="h-10 w-auto" />
-            <img src={Logo1} alt="Neoteche" className="h-8 w-auto opacity-90" />
+            <div className="flex items-center gap-3 group">
+              <img
+                className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                src={logo}
+                alt="NEOTECHE logo"
+              />
+
+              <div className="flex flex-col leading-tight">
+                <span className="text-xl font-black tracking-tight text-white font-['Outfit']">
+                  NEOTECHE
+                </span>
+
+                <span className="text-xs text-cyan-400 tracking-wide font-['Outfit']">
+                  A New Wave in Technology
+                </span>
+              </div>
+            </div>
+            <p className="max-w-xs text-sm leading-relaxed font-light">
+              Building intelligent technology solutions and experimental prototypes
+              to solve real-world challenges for modern businesses.
+            </p>
+            <div className="flex gap-4 pt-4">
+              <SocialIcon icon={Linkedin} href="https://linkedin.com" />
+              <SocialIcon icon={GithubIcon} href="https://github.com" />
+              <SocialIcon icon={Mail} href="mailto:contact@neoteche.tech" />
+            </div>
           </div>
-          <p className="text-sm opacity-60 ml-1">
-            A New Wave in Technology
-          </p>
+
+          {/* LINKS */}
+          <div className="space-y-6">
+            <h4 className="text-white font-bold font-['Outfit']">Company</h4>
+            <ul className="space-y-3 text-sm font-light">
+              <li><a href="#why" className="hover:text-indigo-400 transition-colors">About Us</a></li>
+              <li><a href="#services" className="hover:text-indigo-400 transition-colors">Services</a></li>
+              <li><a href="#projects" className="hover:text-indigo-400 transition-colors">Our Work</a></li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-white font-bold font-['Outfit']">Resources</h4>
+            <ul className="space-y-3 text-sm font-light">
+              <li><a href="#blog" className="hover:text-indigo-400 transition-colors">Tech Blog</a></li>
+              <li><a href="#" className="hover:text-indigo-400 transition-colors">Case Studies</a></li>
+              <li><a href="#" className="hover:text-indigo-400 transition-colors">Whitepapers</a></li>
+              <li><a href="#contact" className="hover:text-indigo-400 transition-colors">Collaboration</a></li>
+            </ul>
+          </div>
         </div>
 
-        {/* SOCIALS */}
-        <div className="flex gap-8">
-          <SocialLink href="https://linkedin.com/" icon="https://cdn-icons-png.flaticon.com/512/174/174857.png" label="LinkedIn" />
-          <SocialLink href="https://discord.gg/" icon="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" label="Discord" />
-          <SocialLink href="mailto:contact@neoteche.in" icon="https://cdn-icons-png.flaticon.com/512/732/732200.png" label="Email" />
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold tracking-widest uppercase text-gray-600">
+          <p>© {new Date().getFullYear()} NEOTECHE LABS. ALL RIGHTS RESERVED.</p>
+          <div className="flex items-center gap-1">
+            MADE WITH <Heart size={10} className="text-indigo-500" /> FOR THE FUTURE
+          </div>
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-200/10 text-center md:text-left flex flex-col md:flex-row justify-between text-sm opacity-50">
-        <p>© {new Date().getFullYear()} Neoteche. All Rights Reserved.</p>
-        <p>Built with ❤️ for the future.</p>
       </div>
     </footer>
   );
 }
 
-function SocialLink({ href, icon, label }) {
+function SocialIcon({ icon: IconComponent, href }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-2 hover:opacity-100 opacity-70 transition group"
+      className="p-3 rounded-xl bg-white/5 border border-white/5 text-gray-500 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all"
     >
-      <img src={icon} alt={label} className="h-5 w-5 grayscale group-hover:grayscale-0 transition duration-300" />
-      <span className="font-medium">{label}</span>
+      <IconComponent size={18} />
     </a>
   );
 }

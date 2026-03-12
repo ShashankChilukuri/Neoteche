@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Multi-RAG Chatbot",
+    "desc": "An advanced AI chatbot that uses multi-source Retrieval-Augmented Generation (RAG) to retrieve and combine knowledge from multiple databases, documents, and APIs to provide accurate and context-aware responses.",
+    "tech": [
+      "Python",
+      "LangChain",
+      "Vector Database",
+      "LLM APIs",
+      "FastAPI"
+    ],
+    "status": "Development"
+  },
+  {
+    "id": 2,
+    "name": "AI Resume Analyzer",
+    "desc": "An AI-powered tool that evaluates resumes and ranks candidates based on job requirements using natural language processing.",
+    "tech": [
+      "Python",
+      "NLP",
+      "Flask"
+    ],
+    "status": "Prototype"
+  },
+  {
+    "id": 3,
+    "name": "NeoVision",
+    "desc": "A computer vision system capable of detecting objects and analyzing visual data for security, monitoring, and analytics applications.",
+    "tech": [
+      "Python",
+      "OpenCV",
+      "TensorFlow",
+      "PyTorch"
+    ],
+    "status": "Research"
+  }
+]

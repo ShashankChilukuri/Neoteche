@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Logo from "../assets/LogoOnly.png";
+import { Cpu, Brain, Zap, Globe, Shield } from "lucide-react";
 
-export default function Hero({ dark }) {
+export default function Hero() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.3,
       },
     },
@@ -16,138 +16,99 @@ export default function Hero({ dark }) {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
   };
+
+  const focusAreas = [
+    { name: "Artificial Intelligence", icon: Brain, color: "text-purple-400" },
+    { name: "Software Engineering", icon: Cpu, color: "text-blue-400" },
+    { name: "Automation Systems", icon: Zap, color: "text-amber-400" },
+  ];
 
   return (
     <section
       id="hero"
-      className={`relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden transition-colors duration-500 ${dark ? "bg-slate-900" : "bg-white"
-        }`}
+      className="relative w-full min-h-screen flex flex-col justify-center items-center px-6 mt-10 overflow-hidden mesh-gradient"
     >
-      {/* -------------------------------------------------- */}
-      {/* ANIMATED BACKGROUND */}
-      {/* -------------------------------------------------- */}
+      {/* Background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {dark ? (
-          // Dark Mode Background
-          <>
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.15),transparent_50%)]" />
-            <motion.div
-              animate={{ x: [0, 50, 0], y: [0, -50, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 left-10 w-96 h-96 bg-purple-600/20 blur-[100px] rounded-full mix-blend-screen"
-            />
-            <motion.div
-              animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute bottom-20 right-10 w-80 h-80 bg-blue-600/20 blur-[90px] rounded-full mix-blend-screen"
-            />
-          </>
-        ) : (
-          // Light Mode Background
-          <>
-            <div className="absolute top-0 left-0 w-full h-full bg-white/50" />
-            <motion.div
-              animate={{ x: [0, 50, 0], y: [0, -50, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 left-10 w-96 h-96 bg-indigo-300/30 blur-[100px] rounded-full mix-blend-multiply"
-            />
-            <motion.div
-              animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute bottom-20 right-10 w-80 h-80 bg-purple-300/30 blur-[90px] rounded-full mix-blend-multiply"
-            />
-          </>
-        )}
+        <motion.div
+          animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/10 blur-[120px] rounded-full"
+        />
+        <motion.div
+          animate={{ x: [0, -80, 0], y: [0, 60, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/10 blur-[120px] rounded-full"
+        />
       </div>
 
-      {/* -------------------------------------------------- */}
-      {/* CONTENT */}
-      {/* -------------------------------------------------- */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative z-10 max-w-4xl mx-auto flex flex-col items-center"
+        className="relative z-10 w-full flex flex-col items-center text-center px-4 md:px-12 lg:px-20"
       >
-        {/* LOGO With Glow */}
-        <motion.div variants={itemVariants} className="relative mb-6 group">
-          <div className={`absolute inset-0 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full ${dark ? "bg-indigo-500" : "bg-indigo-400"}`} />
-          <img
-            src={Logo}
-            alt="Neoteche Logo"
-            className="relative h-24 md:h-32 w-auto drop-shadow-2xl"
-          />
-        </motion.div>
-
-        {/* NEOTECHE TITLE */}
+        {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className={`text-6xl md:text-8xl font-black tracking-tight mb-2 font-['Outfit'] ${dark ? "text-white" : "text-slate-900"
-            }`}
+          className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight mb-6 font-['Outfit'] text-white"
         >
-          Neoteche
+          Solving Real-World <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400">Problems</span> with AI.
         </motion.h1>
 
-        {/* SUBTITLE */}
+        {/* Description */}
         <motion.p
           variants={itemVariants}
-          className={`text-2xl md:text-4xl font-light mb-8 tracking-wide ${dark ? "text-indigo-300" : "text-indigo-600"
-            }`}
+          className="text-lg md:text-2xl max-w-3xl leading-relaxed mb-12 text-gray-400 font-light"
         >
-          New Wave in Technology
+          NEOTECHE is a technology innovation company focused on building intelligent solutions,
+          experimental prototypes, and high-performance software for the next digital era.
         </motion.p>
 
-        {/* DESCRIPTION */}
-        <motion.p
+        {/* CTA */}
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 mb-20">
+          <a
+            href="#contact"
+            className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-full text-lg shadow-xl shadow-indigo-500/30 hover:bg-indigo-500 transition-all hover:-translate-y-1 active:scale-95 text-center"
+          >
+            Get Started
+          </a>
+          <a
+            href="#projects"
+            className="px-8 py-4 glass text-white font-bold rounded-full text-lg hover:bg-white/10 transition-all active:scale-95 text-center border border-white/20"
+          >
+            View Projects
+          </a>
+        </motion.div>
+
+        {/* Focus Areas */}
+        <motion.div
           variants={itemVariants}
-          className={`text-lg md:text-xl max-w-2xl leading-relaxed mb-10 ${dark ? "text-gray-300" : "text-gray-600"
-            }`}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full px-4 md:px-12 lg:px-20"
         >
-          We build cutting-edge <span className={`${dark ? "text-white" : "text-gray-900"} font-semibold`}>Web & AI solutions</span> —
-          powering automation, intelligence, and future-ready digital experiences for modern businesses.
-        </motion.p>
-
-        {/* CTA BUTTONS */}
-        <motion.div variants={itemVariants} className="flex flex-col md:flex-row gap-5 w-full md:w-auto">
-          <a
-            href="#contact"
-            className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-full text-lg shadow-lg shadow-indigo-500/30 hover:bg-indigo-500 hover:scale-105 transition active:scale-95 text-center"
-          >
-            Start Your Project
-          </a>
-
-          <a
-            href="#contact"
-            className={`px-8 py-4 backdrop-blur-md border font-bold rounded-full text-lg transition active:scale-95 text-center ${dark
-              ? "bg-white/10 text-white border-white/20 hover:bg-white/20"
-              : "bg-white/50 text-indigo-900 border-indigo-200 hover:bg-white"
-              }`}
-          >
-            Get a Quote
-          </a>
+          {focusAreas.map((area, i) => (
+            <div key={i} className="flex flex-col items-center gap-3">
+              <div className={`w-12 h-12 rounded-2xl glass flex items-center justify-center ${area.color}`}>
+                <area.icon size={24} />
+              </div>
+              <span className="text-sm font-semibold text-gray-400 tracking-wide">{area.name}</span>
+            </div>
+          ))}
         </motion.div>
       </motion.div>
 
-      {/* SCROLL INDICATOR */}
+      {/* Scroll Hint */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-50"
       >
-        <span className={`text-sm font-medium uppercase tracking-widest ${dark ? "text-gray-400" : "text-gray-500"}`}>
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-1 h-12 bg-gradient-to-b from-indigo-500 to-transparent rounded-full"
-        />
+        <div className="w-px h-12 bg-gradient-to-b from-indigo-500 to-transparent" />
       </motion.div>
-
     </section>
   );
 }

@@ -8,7 +8,7 @@ export default function Contact() {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className="max-w-5xl mx-auto bg-gradient-to-br from-indigo-900 to-purple-900 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden ring-1 ring-white/10 shadow-2xl"
+        className="w-full bg-gradient-to-br from-indigo-900 to-purple-900 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden ring-1 ring-white/10 shadow-2xl"
       >
         {/* Decorative Circles */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -ml-20 -mt-20"></div>

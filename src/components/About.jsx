@@ -1,104 +1,85 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Target, Eye, ShieldCheck } from "lucide-react";
 
-export default function About({ dark }) {
-  const cardVariants = {
-    offscreen: { y: 50, opacity: 0 },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", bounce: 0.4, duration: 0.8 },
+export default function About() {
+  const features = [
+    {
+      title: "Our Mission",
+      desc: "Build intelligent technology solutions that solve real-world problems and drive human progress.",
+      icon: Target,
+      color: "text-indigo-400"
     },
-  };
+    {
+      title: "Our Vision",
+      desc: "Become a global innovation-driven tech company at the forefront of the AI revolution.",
+      icon: Eye,
+      color: "text-purple-400"
+    },
+    {
+      title: "Our Values",
+      desc: "Engineering excellence, transparent collaboration, and a relentless focus on solving complex challenges.",
+      icon: ShieldCheck,
+      color: "text-emerald-400"
+    }
+  ];
 
   return (
-    <section id="why" className="relative py-32 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* HEADER */}
-        <div className="text-center mb-24">
-          <motion.span
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-            className="text-indigo-500 font-bold tracking-widest uppercase text-sm"
-          >
-            About Us
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className={`text-4xl md:text-5xl font-['Outfit'] font-bold mt-2 ${dark ? "text-white" : "text-gray-900"}`}
-          >
-            Why We Started
-          </motion.h2>
+    <section id="why" className="relative py-32 px-6 overflow-hidden bg-[#020617]">
+      <div className="w-full px-4 md:px-12 lg:px-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* CONTENT */}
           <motion.div
-            initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-24 h-1 bg-indigo-500 mx-auto mt-6 rounded-full"
-          />
-        </div>
-
-        {/* GRID LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* LEFT: STORY */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            <p className={`text-xl leading-relaxed ${dark ? "text-gray-300" : "text-gray-600"}`}>
-              <strong className="text-indigo-500 block text-2xl mb-2">Purpose-Driven Innovation.</strong>
-              Neoteche was founded with one clear purpose — helping businesses grow using modern technology.
+            <div>
+              <span className="text-indigo-500 font-bold tracking-widest uppercase text-sm">
+                About Neoteche
+              </span>
+              <h2 className="text-4xl md:text-6xl font-['Outfit'] font-bold text-white mt-4">
+                Innovating for a <span className="text-indigo-400">Better Future</span>.
+              </h2>
+            </div>
+            
+            <p className="text-xl text-gray-400 leading-relaxed font-light">
+              NEOTECHE is a technology innovation and solutions company. 
+              We don't just build software; we build intelligence. Our focus is on 
+              transforming complex real-world problems into elegant, automated, and 
+              scalable digital solutions.
             </p>
-            <p className={`text-lg leading-relaxed ${dark ? "text-gray-400" : "text-gray-500"}`}>
-              We believe innovation should be <span className="text-indigo-500 font-semibold">accessible</span>,
-              <span className="text-purple-500 font-semibold"> affordable</span>, and built with engineering precision.
-              We love transforming complex problems into simple, scalable, AI-powered digital experiences.
-            </p>
+
+            <div className="pt-6 border-t border-white/10">
+              <p className="text-gray-500 italic">
+                "We are currently building internal products and experimental technology 
+                solutions, open to collaborations with startups and businesses."
+              </p>
+            </div>
           </motion.div>
 
-          {/* RIGHT: MISSION & VISION CARDS */}
-          <div className="space-y-6">
-
-            {/* Mission Card */}
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              variants={cardVariants}
-              className={`p-8 rounded-3xl border shadow-xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 ${dark ? "bg-gray-800/50 border-gray-700/50" : "bg-white border-gray-100"
-                }`}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-indigo-500/20 transition-colors" />
-              <h3 className={`text-2xl font-bold mb-3 flex items-center gap-3 ${dark ? "text-white" : "text-gray-900"}`}>
-                <span className="text-3xl">🚀</span> Our Mission
-              </h3>
-              <p className={`${dark ? "text-gray-400" : "text-gray-600"}`}>
-                To deliver high-quality, affordable, AI-powered and web-based digital solutions that help
-                businesses unlock speed, scalability, and growth.
-              </p>
-            </motion.div>
-
-            {/* Vision Card */}
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              variants={cardVariants}
-              className={`p-8 rounded-3xl border shadow-xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 ${dark ? "bg-gray-800/50 border-gray-700/50" : "bg-white border-gray-100"
-                }`}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-purple-500/20 transition-colors" />
-              <h3 className={`text-2xl font-bold mb-3 flex items-center gap-3 ${dark ? "text-white" : "text-gray-900"}`}>
-                <span className="text-3xl">👁️</span> Our Vision
-              </h3>
-              <p className={`${dark ? "text-gray-400" : "text-gray-600"}`}>
-                To become a global innovation partner — building the next wave of Web & AI systems that turn
-                ideas into future-ready digital experiences.
-              </p>
-            </motion.div>
-
+          {/* GRID OF CARDS */}
+          <div className="grid grid-cols-1 gap-6">
+            {features.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass p-8 rounded-3xl group border border-white/5 bg-white/5 backdrop-blur-sm"
+              >
+                <div className="flex items-start gap-6">
+                  <div className={`p-4 rounded-2xl bg-white/5 border border-white/10 ${item.color} group-hover:scale-110 transition-transform`}>
+                    <item.icon size={28} />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-white font-['Outfit']">{item.title}</h3>
+                    <p className="text-gray-400 font-light leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

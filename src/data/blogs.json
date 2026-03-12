@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of AI in Modern Business",
+    "category": "AI & Technology",
+    "excerpt": "How generative AI is reshaping traditional workflows and creating new opportunities for innovation.",
+    "content": "AI is no longer a distant dream but a present reality. From automated customer support to complex data analysis, generative models are transforming how businesses operate. We explore the ethical implications and the immense potential of these systems to drive human progress.\n\n### Why it matters\nEfficiency is the core of survival in the modern market. AI provides the edge needed to scale without proportional cost increases.\n\n### Key Takeaways\n- Automation reduces human error.\n- Creative AI expands design horizons.\n- Data-driven decisions are more accurate.",
+    "date": "March 10, 2026",
+    "readTime": "5 min read",
+    "author": "Lab Team"
+  },
+  {
+    "id": 2,
+    "title": "Building Scalable Microservices with Go",
+    "category": "Software Development",
+    "excerpt": "A deep dive into why Go is becoming the standard for high-performance backend systems.",
+    "content": "Go's simplicity and performance make it the ideal language for microservices. In this post, we discuss the advantages of Go's concurrency model and how it helps in building robust distributed systems.\n\n### Go's Concurrency\nGoroutines and channels allow for efficient parallel processing with minimal overhead.",
+    "date": "March 08, 2026",
+    "readTime": "8 min read",
+    "author": "Eng Team"
+  },
+  {
+    "id": 3,
+    "title": "Intelligent Automation: Beyond If-Else",
+    "category": "Automation",
+    "excerpt": "Moving from static scripts to adaptive agents that learn from data.",
+    "content": "Static automation is limited. Intelligent agents can handle edge cases that traditional scripts cannot. We look into the architecture of adaptive agents and their real-world applications.",
+    "date": "March 05, 2026",
+    "readTime": "6 min read",
+    "author": "AI Expert"
+  },
+  {
+    "id": 4,
+    "title": "MVP Strategies for 2026 Tech Startups",
+    "category": "Startup Innovation",
+    "excerpt": "How to validate your product faster in a hyper-competitive market.",
+    "content": "Speed is everything. Building an MVP is about learning, not just launching. We provide a framework for rapid prototyping and user feedback integration.",
+    "date": "March 02, 2026",
+    "readTime": "10 min read",
+    "author": "Product Lead"
+  }
+]

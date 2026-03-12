@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/NavBar.jsx";
 import Hero from "./components/Hero.jsx";
-import Why from "./components/About.jsx";
+import About from "./components/About.jsx";
 import Services from "./components/Services.jsx";
 import Projects from "./components/Projects.jsx";
+import Blog from "./components/Blog.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function NeotecheLanding() {
-  const [dark, setDark] = useState(false);
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
@@ -27,17 +27,15 @@ export default function NeotecheLanding() {
   }, []);
 
   return (
-    <div
-      className={`${dark ? "bg-gray-900 text-gray-100" : "bg-white text-gray-900"
-        } min-h-screen transition`}
-    >
-      <Navbar dark={dark} setDark={setDark} active={active} />
-      <Hero dark={dark} />
-      <Why dark={dark} />
-      <Services dark={dark} />
-      <Projects dark={dark} />
-      <Contact dark={dark} />
-      <Footer dark={dark} />
+    <div className="bg-[#020617] text-gray-100 min-h-screen selection:bg-indigo-500/30">
+      <Navbar active={active} />
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <Blog />
+      <Contact />
+      <Footer />
     </div>
   );
 }
