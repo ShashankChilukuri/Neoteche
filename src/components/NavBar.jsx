@@ -22,7 +22,6 @@ export default function NavBar({ active }) {
     { id: "why", label: "About" },
     { id: "services", label: "Services" },
     { id: "projects", label: "Projects" },
-    { id: "blog", label: "Blog" },
   ];
 
   const scrollToSection = (id) => {

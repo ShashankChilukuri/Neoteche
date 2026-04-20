@@ -32,8 +32,7 @@ export default function Footer() {
               to solve real-world challenges for modern businesses.
             </p>
             <div className="flex gap-4 pt-4">
-              <SocialIcon icon={Linkedin} href="https://linkedin.com" />
-              <SocialIcon icon={GithubIcon} href="https://github.com" />
+              <SocialIcon icon={Linkedin} href="https://www.linkedin.com/company/neoteche/" />
               <SocialIcon icon={Mail} href="mailto:contact@neoteche.tech" />
             </div>
           </div>
@@ -53,8 +52,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm font-light">
               <li><a href="#blog" className="hover:text-indigo-400 transition-colors">Tech Blog</a></li>
               <li><a href="#" className="hover:text-indigo-400 transition-colors">Case Studies</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Whitepapers</a></li>
-              <li><a href="#contact" className="hover:text-indigo-400 transition-colors">Collaboration</a></li>
+             <li><a href="#contact" className="hover:text-indigo-400 transition-colors">Collaboration</a></li>
             </ul>
           </div>
         </div>

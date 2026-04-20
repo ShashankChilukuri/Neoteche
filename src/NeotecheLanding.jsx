@@ -33,7 +33,7 @@ export default function NeotecheLanding() {
       <About />
       <Services />
       <Projects />
-      <Blog />
+     
       <Contact />
       <Footer />
     </div>
