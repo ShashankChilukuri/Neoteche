@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Rocket, BookOpen, Send } from "lucide-react";
+import { Menu, X, Send } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/Fresh-Logo.png"
 export default function NavBar({ active }) {
@@ -19,9 +19,9 @@ export default function NavBar({ active }) {
 
   const navLinks = [
     { id: "hero", label: "Home" },
-    { id: "why", label: "About" },
+    { id: "why", label: "Why Us" },
     { id: "services", label: "Services" },
-    { id: "projects", label: "Projects" },
+    { id: "blog", label: "Blog" },
   ];
 
   const scrollToSection = (id) => {
