@@ -21,7 +21,6 @@ export default function NavBar({ active }) {
     { id: "hero", label: "Home" },
     { id: "why", label: "Why Us" },
     { id: "services", label: "Services" },
-    { id: "blog", label: "Blog" },
   ];
 
   const scrollToSection = (id) => {

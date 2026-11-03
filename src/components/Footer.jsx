@@ -1,19 +1,21 @@
 import React from "react";
-import { Linkedin, Mail, Heart, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Linkedin, Mail, Phone, Heart, ArrowUpRight } from "lucide-react";
 import logo from "../assets/Fresh-Logo.png";
 
 const footerLinks = {
   Company: [
-    { label: "Why Us", href: "#why" },
-    { label: "Services", href: "#services" },
-    { label: "Blog", href: "#blog" },
-    { label: "Contact", href: "#contact" },
+    { label: "Why Us", href: "/#why" },
+    { label: "Services", href: "/#services" },
+    { label: "Contact", href: "/#contact" },
+    { label: "Privacy Policy", href: "/privacypolicy", isRoute: true },
   ],
   Services: [
-    { label: "Custom Software", href: "#services" },
-    { label: "Intelligent Automation", href: "#services" },
+    { label: "Custom Software", href: "/#services" },
+    { label: "Intelligent Automation", href: "/#services" },
   ],
   Contact: [
+    { label: "+91 62813 08416", href: "tel:+916281308416", external: true },
     { label: "support@neoteche.tech", href: "mailto:support@neoteche.tech", external: true },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/neoteche/", external: true },
   ],
@@ -42,8 +44,9 @@ export default function Footer() {
               and automation systems — built for businesses that want to move faster.
             </p>
             <div className="flex gap-3 pt-2">
-              <SocialIcon icon={Linkedin} href="https://www.linkedin.com/company/neoteche/" />
+              <SocialIcon icon={Phone} href="tel:+916281308416" />
               <SocialIcon icon={Mail} href="mailto:support@neoteche.tech" />
+              <SocialIcon icon={Linkedin} href="https://www.linkedin.com/company/neoteche/" />
             </div>
           </div>
 
@@ -54,17 +57,26 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
-                      className="text-sm font-light hover:text-indigo-400 transition-colors flex items-center gap-1 group"
-                    >
-                      {link.label}
-                      {link.external && (
-                        <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                      )}
-                    </a>
+                    {link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="text-sm font-light hover:text-indigo-400 transition-colors flex items-center gap-1 group"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        className="text-sm font-light hover:text-indigo-400 transition-colors flex items-center gap-1 group"
+                      >
+                        {link.label}
+                        {link.external && (
+                          <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        )}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -73,10 +85,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-bold tracking-widest uppercase text-gray-700">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-bold tracking-widest uppercase text-gray-500">
           <p>© {new Date().getFullYear()} NEOTECHE. All Rights Reserved.</p>
-          <div className="flex items-center gap-1.5">
-            Made with <Heart size={10} className="text-indigo-500" /> for the Future
+          <div className="flex items-center gap-6">
+            <Link to="/privacypolicy" className="hover:text-indigo-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <div className="flex items-center gap-1.5 text-gray-600">
+              Made with <Heart size={10} className="text-indigo-500" /> for the Future
+            </div>
           </div>
         </div>
       </div>
@@ -84,10 +101,11 @@ export default function Footer() {
   );
 }
 
-function SocialIcon({ icon: IconComponent, href }) {
+function SocialIcon({ icon: _icon, href: _href }) {
+  const IconComponent = _icon;
   return (
     <a
-      href={href}
+      href={_href}
       target="_blank"
       rel="noopener noreferrer"
       className="p-3 rounded-xl bg-white/5 border border-white/5 text-gray-500 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all"
